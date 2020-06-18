@@ -1,0 +1,47 @@
+@model User
+<h1>Hello @Model.FirstName! </h1>
+
+<a href="/createwedding">New Wedding Plan</a>
+
+<table>
+    <thead>
+        <th>Wedding</th>
+        <th>Date</th>
+        <th>Guest</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        @foreach (Wedding w in @ViewBag.AllWeddings)
+        {
+        <tr>
+            <td><a href="/display/@w.WeddingId">@w.WedderOne & @w.WedderTwo</a></td>
+            <td>@w.Date</td>
+            <td>@w.EventGuests.Count</td>
+           
+            @if (@w.UserId ==@Model.UserId)
+            {
+                <td><a href="/delete/@w.WeddingId">Delete</a></td> 
+            }
+
+            else 
+            {
+                if (@w.EventGuests.Any(a=>a.UserId==Model.UserId))
+                {
+                    <td><a href="/leave/@w.WeddingId/@Model.UserId">Cancel RSVP</a></td>
+
+                }
+                else
+                {
+                    <td><a href="/join/@w.WeddingId/@Model.UserId">RSVP</a></td>
+                }
+
+            }
+
+
+
+
+        </tr>
+        }
+
+    </tbody>
+</table>

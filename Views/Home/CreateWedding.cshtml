@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Wedding</title>
+</head>
+<body>
+    @model Wedding
+    <form method="post" action="/processwedding">
+    
+    <p>Wedder One: <input asp-for="WedderOne"></p>
+    <p><span asp-validation-for="WedderOne"></span></p>
+
+    <p>Wedder Two:<input asp-for="WedderTwo"></p>
+    <p><span asp-validation-for="WedderTwo"></span></p>
+
+    <p>Wedding Date:<input asp-for="Date"></p>
+    <p><span asp-validation-for="Date"></span></p>
+
+    <p>Event Address: <input asp-for="Address"></p>
+    <p><span asp-validation-for="Address"></span></p>
+
+    <input type="Submit" value="Create Wedding">
+    </form>
+    
+</body>
+</html>

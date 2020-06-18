@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Information</title>
+
+</head>
+<body>
+
+    <h2>@ViewBag.DisplayWedding.WedderOne and @ViewBag.DisplayWedding.WedderTwo's Wedding!</h2>
+    <h3>Date: @ViewBag.DisplayWedding.Date</h3>
+    <h3>Venue: @ViewBag.DisplayWedding.Address</h3>
+    <h3>Guest List:</h3>
+    <ul>
+    @foreach (Guest a in @ViewBag.DisplayWedding.EventGuests)
+    {
+        <li>@a.User.FirstName @a.User.LastName</li>
+    }
+    </ul>
+</body>
+</html>

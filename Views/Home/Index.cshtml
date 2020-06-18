@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @model User
+   <title>Register!</title>
+    <h1>Register User!</h1>
+    <form action="/processuser" method="post">
+    <p>First Name: <input asp-for="FirstName"/></p>
+    <p><span style="color:red;" asp-validation-for="FirstName"></span></p>
+    
+    <p>Last Name: <input asp-for="LastName"/></p>
+    <p><span style="color:red;" asp-validation-for="LastName"></span></p>
+
+    <p>Email: <input asp-for="Email"/></p>
+    <p><span style="color:red;" asp-validation-for="Email"></span></p>
+
+    <p>Password: <input asp-for="Password"/></p>
+    <p><span style="color:red;" asp-validation-for="Password"></span></p>
+
+    <p>Password Confirmation: <input asp-for="Confirm"/></p>
+    <p><span style="color:red;" asp-validation-for="Confirm"></span></p>
+    <input type="Submit" Value="Sign up Now!" />
+    </form>
+    <p>Already registered? <a href="/login">Login!</a></p>
+
+    </div>
